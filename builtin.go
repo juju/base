@@ -11,7 +11,7 @@ import (
 	"github.com/juju/systems/channel"
 )
 
-// Supported OS constant names for Systems.
+// Supported Name constant names for Bases.
 // This list should match the ones found in juju/os except for "kubernetes".
 const (
 	Ubuntu       = "ubuntu"
@@ -22,164 +22,168 @@ const (
 	GenericLinux = "genericlinux"
 )
 
-// validOS is a string set of valid OS names.
+// validOS is a string set of valid Name names.
 var validOS = set.NewStrings(Ubuntu, CentOS, Windows, OSX, OpenSUSE, GenericLinux)
 
-// seriesToSystem is a map of series names to systems.
+// seriesToBases is a map of series names to systems.
 // This should match the ones found in juju/os except for "kubernetes".
-var seriesToSystem = map[string]System{
-	"precise": System{
-		OS:      Ubuntu,
+var seriesToBases = map[string]Base{
+	"precise": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("12.04/stable"),
 	},
-	"quantal": System{
-		OS:      Ubuntu,
+	"quantal": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("12.10/stable"),
 	},
-	"raring": System{
-		OS:      Ubuntu,
+	"raring": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("13.04/stable"),
 	},
-	"saucy": System{
-		OS:      Ubuntu,
+	"saucy": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("13.10/stable"),
 	},
-	"trusty": System{
-		OS:      Ubuntu,
+	"trusty": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("14.04/stable"),
 	},
-	"utopic": System{
-		OS:      Ubuntu,
+	"utopic": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("14.10/stable"),
 	},
-	"vivid": System{
-		OS:      Ubuntu,
+	"vivid": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("15.04/stable"),
 	},
-	"wily": System{
-		OS:      Ubuntu,
+	"wily": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("15.10/stable"),
 	},
-	"xenial": System{
-		OS:      Ubuntu,
+	"xenial": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("16.04/stable"),
 	},
-	"yakkety": System{
-		OS:      Ubuntu,
+	"yakkety": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("16.10/stable"),
 	},
-	"zesty": System{
-		OS:      Ubuntu,
+	"zesty": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("17.04/stable"),
 	},
-	"artful": System{
-		OS:      Ubuntu,
+	"artful": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("17.10/stable"),
 	},
-	"bionic": System{
-		OS:      Ubuntu,
+	"bionic": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("18.04/stable"),
 	},
-	"cosmic": System{
-		OS:      Ubuntu,
+	"cosmic": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("18.10/stable"),
 	},
-	"disco": System{
-		OS:      Ubuntu,
+	"disco": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("19.04/stable"),
 	},
-	"eoan": System{
-		OS:      Ubuntu,
+	"eoan": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("19.10/stable"),
 	},
-	"focal": System{
-		OS:      Ubuntu,
+	"focal": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("20.04/stable"),
 	},
-	"groovy": System{
-		OS:      Ubuntu,
+	"groovy": {
+		Name:    Ubuntu,
 		Channel: channel.MustParse("20.10/stable"),
 	},
-	"win2008r2": System{
-		OS:      Windows,
+	"hirsute": {
+		Name:    Ubuntu,
+		Channel: channel.MustParse("21.04/stable"),
+	},
+	"win2008r2": {
+		Name:    Windows,
 		Channel: channel.MustParse("win2008r2/stable"),
 	},
-	"win2012hvr2": System{
-		OS:      Windows,
+	"win2012hvr2": {
+		Name:    Windows,
 		Channel: channel.MustParse("win2012hvr2/stable"),
 	},
-	"win2012hv": System{
-		OS:      Windows,
+	"win2012hv": {
+		Name:    Windows,
 		Channel: channel.MustParse("win2012hv/stable"),
 	},
-	"win2012r2": System{
-		OS:      Windows,
+	"win2012r2": {
+		Name:    Windows,
 		Channel: channel.MustParse("win2012r2/stable"),
 	},
-	"win2012": System{
-		OS:      Windows,
+	"win2012": {
+		Name:    Windows,
 		Channel: channel.MustParse("win2012/stable"),
 	},
-	"win2016": System{
-		OS:      Windows,
+	"win2016": {
+		Name:    Windows,
 		Channel: channel.MustParse("win2016/stable"),
 	},
-	"win2016hv": System{
-		OS:      Windows,
+	"win2016hv": {
+		Name:    Windows,
 		Channel: channel.MustParse("win2016hv/stable"),
 	},
-	"win2016nano": System{
-		OS:      Windows,
+	"win2016nano": {
+		Name:    Windows,
 		Channel: channel.MustParse("win2016nano/stable"),
 	},
-	"win2019": System{
-		OS:      Windows,
+	"win2019": {
+		Name:    Windows,
 		Channel: channel.MustParse("win2019/stable"),
 	},
-	"win7": System{
-		OS:      Windows,
+	"win7": {
+		Name:    Windows,
 		Channel: channel.MustParse("win7/stable"),
 	},
-	"win8": System{
-		OS:      Windows,
+	"win8": {
+		Name:    Windows,
 		Channel: channel.MustParse("win8/stable"),
 	},
-	"win81": System{
-		OS:      Windows,
+	"win81": {
+		Name:    Windows,
 		Channel: channel.MustParse("win81/stable"),
 	},
-	"win10": System{
-		OS:      Windows,
+	"win10": {
+		Name:    Windows,
 		Channel: channel.MustParse("win10/stable"),
 	},
-	"centos7": System{
-		OS:      CentOS,
+	"centos7": {
+		Name:    CentOS,
 		Channel: channel.MustParse("centos7/stable"),
 	},
-	"centos8": System{
-		OS:      CentOS,
+	"centos8": {
+		Name:    CentOS,
 		Channel: channel.MustParse("centos8/stable"),
 	},
-	"opensuseleap": System{
-		OS:      OpenSUSE,
+	"opensuseleap": {
+		Name:    OpenSUSE,
 		Channel: channel.MustParse("opensuse42/stable"),
 	},
-	"genericlinux": System{
-		OS:      GenericLinux,
+	"genericlinux": {
+		Name:    GenericLinux,
 		Channel: channel.MustParse("latest/stable"),
 	},
 }
 
-// systemToSeries is a reverse of seriesToSystem
-var systemToSeries = reverseSeriesMap()
+// baseToSeries is a reverse of seriesToBase
+var baseToSeries = reverseSeriesMap()
 
-func reverseSeriesMap() map[System]string {
-	r := make(map[System]string)
-	for series, system := range seriesToSystem {
-		if _, ok := r[system]; ok {
-			panic(fmt.Sprintf("duplicate system %q = %v", series, system))
+func reverseSeriesMap() map[Base]string {
+	r := make(map[Base]string)
+	for series, base := range seriesToBases {
+		if _, ok := r[base]; ok {
+			panic(fmt.Sprintf("duplicate base %q = %v", series, base))
 		}
-		r[system] = series
+		r[base] = series
 	}
 	return r
 }
