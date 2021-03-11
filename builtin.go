@@ -11,7 +11,7 @@ import (
 	"github.com/juju/systems/channel"
 )
 
-// Supported Name constant names for Bases.
+// Supported OS constant names for Bases.
 // This list should match the ones found in juju/os except for "kubernetes".
 const (
 	Ubuntu       = "ubuntu"
@@ -22,7 +22,7 @@ const (
 	GenericLinux = "genericlinux"
 )
 
-// validOS is a string set of valid Name names.
+// validOS is a string set of valid OS names.
 var validOS = set.NewStrings(Ubuntu, CentOS, Windows, OSX, OpenSUSE, GenericLinux)
 
 // seriesToBases is a map of series names to systems.
